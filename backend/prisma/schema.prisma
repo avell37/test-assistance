@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model VacationRequest {
+  id              String   @id @default(uuid())
+  fullName        String
+  startDate       DateTime @db.Date
+  endDate         DateTime @db.Date
+  reason          String
+  status          String   @default("pending")
+  days            Int
+  rejectionReason String?
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@map("vacation_requests")
+}
