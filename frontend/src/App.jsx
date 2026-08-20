@@ -1,19 +1,30 @@
+import {
+    Card,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "./components/ui/card";
+import VacationList from "./components/VacationList";
+
 export default function App() {
     return (
-        <div className="app">
-            <header className="header">
-                <h1>Заявки на отпуск</h1>
-            </header>
+        <div className="min-h-svh bg-muted/40">
+            <div className="mx-auto flex w-full max-w-5xl flex-col gap-6 px-4 py-8 sm:px-6">
+                <header>
+                    <h1 className="text-2xl font-semibold tracking-tight">
+                        Заявки на отпуск
+                    </h1>
+                </header>
 
-            <main className="main">
-                <section className="section">
-                    <h2>Новая заявка</h2>
-                </section>
+                <Card>
+                    <CardHeader>
+                        <CardTitle>Новая заявка</CardTitle>
+                        <CardDescription>Заглушка под форму</CardDescription>
+                    </CardHeader>
+                </Card>
 
-                <section className="section">
-                    <h2>Список заявок</h2>
-                </section>
-            </main>
+                <VacationList />
+            </div>
         </div>
     );
 }
