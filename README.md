@@ -4,32 +4,39 @@ Fullstack-модуль для подачи и обработки заявок н
 
 ## Стек
 
-- **Backend:** Node.js + Express (in-memory хранилище)
+- **Backend:** Node.js + Express + Prisma
+- **DB:** PostgreSQL (локально)
 - **Frontend:** React + Vite
 - **API:** REST
 
 ## Структура
 
 ```
-├── backend/     # Express API (порт 3001)
+├── backend/     # Express API + Prisma (порт 3001)
 ├── frontend/    # React UI (порт 5173)
 └── README.md
 ```
 
-## Запуск
+## База данных
 
-Нужны Node.js 18+.
+1. Создать локальную БД `vacation` (или с помощью Docker)
+2. Прописать креды в `backend/.env` (см. `.env.example`)
+3. Применить схему:
 
 ```bash
-# Установка зависимостей
+cd backend
+npm run db:migrate
+```
+
+## Запуск
+
+```bash
 npm run install:all
-
-# Терминал 1 — API
 npm run dev:backend
-
-# Терминал 2 — UI
 npm run dev:frontend
 ```
 
-- API: http://localhost:3001/api/health
+- API: http://localhost:3001
 - UI: http://localhost:5173
+
+Сервер стартует только после успешного подключения к БД.
